@@ -1,0 +1,41 @@
+CREATE TABLE user (
+  id_user INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255),
+  password VARCHAR(255),
+  full_name VARCHAR(255),
+  user_name VARCHAR(255),
+  link_avatar VARCHAR(255),
+  ip_register VARCHAR(255),
+  device_register VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE fakelocation_image (
+  id_image INT AUTO_INCREMENT PRIMARY KEY,
+  imagegoc TEXT,
+  imagebackground TEXT,
+  linkImage TEXT,
+  categories TEXT,
+  location TEXT,
+  device_post_image TEXT,
+  ip_location_post TEXT,
+  id_user INT,
+  user_name TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_user) REFERENCES user (id_user)
+);
+
+CREATE TABLE comment_image (
+  id_comment INT AUTO_INCREMENT PRIMARY KEY,
+  id_user INT,
+  linkImage TEXT,
+  ip_comment TEXT,
+  noidung_comment TEXT,
+  id_image INT,
+  user_name VARCHAR(255),
+  device_comment TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_image) REFERENCES fakelocation_image (id_image) ON DELETE CASCADE
+);
+

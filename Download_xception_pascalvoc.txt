@@ -1,0 +1,4 @@
+dowload xception_pascalvoc
+để cùng thư mục main
+
+https://pixellib.readthedocs.io/en/latest/change_image_bg.html
